@@ -49,8 +49,7 @@ restart_waybar() {
 set_current_background() {
 	get_theme
 	get_ver
-	return
-	if [[ ! -z "$SET_BG" ]]; then
+	if [[ -z "$SET_BG" ]]; then
 		#set the current background
 		if [[ $THEMEIS == "dark.css" ]]; then
 			swww img ~/.config/HyprV/backgrounds/$VER'-background-dark.jpg'
