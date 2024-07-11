@@ -1,0 +1,108 @@
+{
+//    "clock": {
+//        "format": "{:%H:%M %a %e.%m.%y}",
+//        "tooltip-format": "{: %A, %e %B %Y}"
+//    },
+    
+    "clock": {
+	      "format": "{:%a, %b %d, %R}",
+	      "format-alt": "{:%H:%M}",
+	      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+	      "calendar": {
+		        "mode"          : "month",
+		        "mode-mon-col"  : 3,
+		        "weeks-pos"     : "right",
+		        "on-scroll"     : 1,
+		        "on-click-right": "mode",
+		        "format": {
+		        	  "months":     "<span color='#ffead3'><b>{}</b></span>",
+		        	  "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+		        	  "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+		        	  "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+		        	  "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+		        }
+	      },
+	      "actions": {
+	      	  "on-click-right": "mode",
+	      	  "on-click-forward": "tz_up",
+	      	  "on-click-backward": "tz_down",
+	      	  "on-scroll-up": "shift_up",
+	      	  "on-scroll-down": "shift_down"
+	      }
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/weather": {
+        //shows the current weather and forecast
+        "tooltip" : true,
+        "format" : "{}",
+        "interval" : 30,
+        "exec" : "~/.config/HyprV/waybar/scripts/waybar-wttr-c.py",
+        "return-type" : "json"
+    },
+
+    "temperature": {
+        "thermal-zone": 1,
+        "format": "",
+        "format-alt-click": "click-right",
+        "format-alt": " {temperatureC}°C",
+        "critical-threshold": 70,
+        "format-critical": " {temperatureC}°C",
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+    },
+
+    "mpris": {
+        "format": "{status_icon} {dynamic}",
+        "album-len": 0,
+        "title-len": 25,
+        "artist-len": 25,
+        "on-click-right": "playerctl stop",
+	      "status-icons": {
+            "default": "▶",
+	      	  "paused": "⏸"
+	      },
+    },
+
+    //"custom/media": {
+    //    "tooltip": true,
+    //    "format": "{icon} {}",
+    //    "tooltip-format": "{tooltip}",
+    //    "escape": true,
+    //    "return-type": "json",
+    //    "max-length": 40,
+    //    "on-click": "playerctl play-pause",
+    //    "on-click-right": "playerctl stop",
+    //    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    //    "on-scroll-up": "playerctl next",
+    //    "on-scroll-down": "playerctl previous",
+    //    "exec": "~/.config/HyprV/waybar/scripts/mediaplayer.py" // Script in resources/custom_modules folder
+    //},
+    
+    "custom/updates": {
+        "format": "{}",
+        "exec": "~/.config/HyprV/waybar/scripts/update-sys",
+        "on-click": "~/.config/HyprV/waybar/scripts/update-sys update",
+        "interval": 300,
+        "tooltip": true
+    }
+}
