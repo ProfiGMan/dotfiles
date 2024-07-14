@@ -1,4 +1,77 @@
 [[manager.prepend_keymap]]
-on   = [ "T" ]
+on   = "T"
 run  = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on   = [ "<C-s>" ]
+run  = 'shell "$SHELL" --block --confirm'
+desc = "Open shell here"
+
+[[manager.prepend_keymap]]
+on   = [ "c", "m" ]
+run  = "plugin chmod"
+desc = "Chmod on selected files"
+
+
+# relative motion
+[[manager.prepend_keymap]]
+on = [ "1" ]
+run = "plugin relative-motions --args=1"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "2" ]
+run = "plugin relative-motions --args=2"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "3" ]
+run = "plugin relative-motions --args=3"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "4" ]
+run = "plugin relative-motions --args=4"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "5" ]
+run = "plugin relative-motions --args=5"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "6" ]
+run = "plugin relative-motions --args=6"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "7" ]
+run = "plugin relative-motions --args=7"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "8" ]
+run = "plugin relative-motions --args=8"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "9" ]
+run = "plugin relative-motions --args=9"
+desc = "Move in relative steps"
+# END relative motion
+
+[[manager.prepend_keymap]]
+on   = [ "c", "a" ]
+run  = "plugin archive"
+desc = "Archive selected files"
+
+[[manager.prepend_keymap]]
+on   = [ "l" ]
+run  = "plugin --sync fast-enter"
+desc = "Enter the subfolder faster, or open the file directly"
+
+[[manager.prepend_keymap]]
+on   = "f"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
