@@ -1,6 +1,6 @@
 require("full-border"):setup()
 
--- require("relative-motions"):setup({ show_numbers = "relative", show_motion = true })
+require("relative-motions"):setup({ show_numbers = "relative_absolute", show_motion = true })
 
 function Status:name()
 	local h = cx.active.current.hovered

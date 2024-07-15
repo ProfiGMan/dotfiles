@@ -51,7 +51,6 @@
         "format": " {}",
         "format-en": "EN",
         "format-ru": "RU",
-        "keyboard-name": "at-translated-set-2-keyboard",
         "on-click": "~/.config/HyprV/hyprv_util swkb",
         "signal": 8
     },

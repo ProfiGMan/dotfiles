@@ -63,7 +63,7 @@ desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
 on   = [ "c", "a" ]
-run  = "plugin archive"
+run  = "plugin compress"
 desc = "Archive selected files"
 
 [[manager.prepend_keymap]]
