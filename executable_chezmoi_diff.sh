@@ -1,18 +1,19 @@
 chezmoi_path=$(chezmoi source-path)
+home_path=$(readlink -f ~)
 
-home_contents=$(find ~/.config | sed "s:^$(readlink -f ~)::")
-chezmoi_contents_raw=$(find $chezmoi_path/dot_config)
+chezmoi_contents_raw=$(find $chezmoi_path)
 chezmoi_contents_processed=$(echo "$chezmoi_contents_raw" | sed -e "s:^$chezmoi_path::" -e 's/executable_//' -e 's/dot_/./g')
-
-home_contents_sorted=$(sort <(echo "$home_contents"))
-chezmoi_contents_processed_sorted=$(sort <(echo "$chezmoi_contents_processed"))
-
-difference=$(comm -23 <(echo "$chezmoi_contents_processed_sorted") <(echo "$home_contents_sorted"))
 
 final_list=""
 while IFS= read -r line || [[ -n $line ]]; do
-	final_list+=$(sed -n "$(grep -n -m 1 $line <(echo "$chezmoi_contents_processed") | cut -f1 -d ":")p" <(echo "$chezmoi_contents_raw"))$'\n'
-done < <(printf '%s' "$difference")
+	if [[ "$line" == "/.git"* ]]; then
+		continue
+	fi
+
+	if [ ! -e $home_path$line ]; then
+		final_list+=$(sed -n "$(grep -n -m 1 $line <(echo "$chezmoi_contents_processed") | cut -f1 -d ":")p" <(echo "$chezmoi_contents_raw"))$'\n'
+	fi
+done < <(printf '%s' "$chezmoi_contents_processed")
 
 if [[ -z "$final_list" ]]; then
 	echo "No files that should be removed are found"
