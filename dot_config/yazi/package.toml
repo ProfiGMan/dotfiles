@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "yazi-rs/plugins#max-preview", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#full-border", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#chmod", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#lsar", commit = "0dc9dcd" }, { use = "dedukun/relative-motions", commit = "21d2ae3" }, { use = "KKV9/archive", commit = "5ffa90b" }, { use = "ourongxing/fast-enter", commit = "2864c59" }, { use = "yazi-rs/plugins#jump-to-char", commit = "0dc9dcd" }]
+deps = [{ use = "yazi-rs/plugins#max-preview", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#full-border", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#chmod", commit = "0dc9dcd" }, { use = "yazi-rs/plugins#lsar", commit = "0dc9dcd" }, { use = "dedukun/relative-motions", commit = "21d2ae3" }, { use = "KKV9/archive", commit = "5ffa90b" }, { use = "ourongxing/fast-enter", commit = "2864c59" }, { use = "yazi-rs/plugins#jump-to-char", commit = "0dc9dcd" }, { use = "AnirudhG07/archivemount", commit = "23b302e" }]
 
 [flavor]
 deps = []

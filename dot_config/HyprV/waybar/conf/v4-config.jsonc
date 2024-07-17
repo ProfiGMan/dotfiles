@@ -51,6 +51,7 @@
         "format": " {}",
         "format-en": "EN",
         "format-ru": "RU",
+        "keyboard-name": "keyd-virtual-keyboard",
         "on-click": "~/.config/HyprV/hyprv_util swkb",
         "signal": 8
     },
