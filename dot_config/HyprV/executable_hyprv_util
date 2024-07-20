@@ -41,7 +41,7 @@ restart_waybar() {
 	get_ver
 
 	if [[ $VER == "v4" ]]; then
-		waybar --config ~/.config/HyprV/waybar/conf/v4-config-bottom.jsonc
+		waybar --config ~/.config/HyprV/waybar/conf/v4-config-bottom.jsonc &
 	fi
 
 }
@@ -123,6 +123,8 @@ elif [[ "$1" == "setbg" ]]; then
 	restart_waybar
 elif [[ "$1" == "swkb" ]]; then
 	switch_keyboard
+	restart_waybar
+elif [[ "$1" == "rwaybar" ]]; then
 	restart_waybar
 fi
 
