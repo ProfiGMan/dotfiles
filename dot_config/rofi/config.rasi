@@ -162,4 +162,4 @@ kb-mode-complete: "";
       sorting-method:    "name";
   }
 }
-@theme "/home/quintus/.config/rofi/launchers/type-1/style-6.rasi"
+@theme "~/.config/rofi/launchers/type-1/style-6.rasi"

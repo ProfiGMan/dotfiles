@@ -57,7 +57,7 @@ set_current_background() {
 			swww img ~/.config/HyprV/backgrounds/$VER'-background.jpg'
 		fi
 	else
-		swww img $SET_BG
+		swww img "${SET_BG/#\~/$HOME}"
 	fi
 }
 

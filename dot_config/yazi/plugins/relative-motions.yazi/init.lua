@@ -44,8 +44,8 @@ local render_motion_setup = ya.sync(function(_)
 		if side == self.RIGHT then
 			lines[1] = self:motion(self)
 		end
-		for _, child in ipairs(side == self.RIGHT and self._right or self._left) do
-			lines[#lines + 1] = child[1](self)
+		for _, c in ipairs(side == self.RIGHT and self._right or self._left) do
+			lines[#lines + 1] = (type(c[1]) == "string" and self[c[1]] or c[1])(self)
 		end
 		return ui.Line(lines)
 	end
@@ -121,15 +121,18 @@ local render_numbers = ya.sync(function(_, mode)
 			end
 		end
 
-		local items = {}
+		local entities, linemodes = {}, {}
 		for i, f in ipairs(files) do
-			items[#items + 1] = ui.ListItem(ui.Line { Entity:number(i, f, hovered_index), Entity:render(f) })
-				:style(Entity:style(f))
+			linemodes[#linemodes + 1] = Linemode:new(f):render()
+
+			local entity = Entity:new(f)
+			entities[#entities + 1] = ui.ListItem(ui.Line { Entity:number(i, f, hovered_index), entity:render() })
+				:style(entity:style())
 		end
 
 		return {
-			ui.List(self._area, items),
-			ui.Paragraph(self._area, Linemode:render(files)):align(ui.Paragraph.RIGHT),
+			ui.List(self._area, entities),
+			ui.Paragraph(self._area, linemodes):align(ui.Paragraph.RIGHT),
 		}
 	end
 end)

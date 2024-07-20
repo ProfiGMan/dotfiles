@@ -16,4 +16,4 @@ eval "$(starship init bash)"
 eval "$(thefuck --alias)"
 
 # Created by `pipx` on 2024-01-02 13:26:08
-export PATH="$PATH:/home/quintus/.local/bin"
+export PATH="$PATH:~/.local/bin"
