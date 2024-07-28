@@ -9,16 +9,11 @@ guiset_quiet hoverlink right
 
 set hintchars sadjklewcmpgh
 set smoothscroll true
+set keyboardlayoutforce true
 
 command emuKey js -d' tri.controller.acceptExCmd(tri.config.get(JS_ARGS[1])[JS_ARGS[2]])'
 
 bind e nmode ignore 1 mode normal
-
-" make tridactyl work on more pages
-command fixed_fixamo_quiet jsb tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""'))
-command fixed_fixamo js tri.excmds.setpref("privacy.resistFingerprinting.block_mozAddonManager", "true").then(tri.excmds.setpref("extensions.webextensions.restrictedDomains", '""').then(tri.excmds.fillcmdline_tmp(3000, "Permissions added to user.js. Please restart Firefox to make them take affect.")))
-fixed_fixamo_quiet
-jsb browser.webRequest.onHeadersReceived.addListener(tri.request.clobberCSP,{urls:["<all_urls>"],types:["main_frame"]},["blocking","responseHeaders"])
 
 " tridactyl search
 bind <C-/> fillcmdline find
