@@ -1,7 +1,17 @@
 [[manager.prepend_keymap]]
+on   = [ "g", "m" ]
+run  = "cd /run/media/bober"
+desc = "Go to the folder with mountpoints"
+
+[[manager.prepend_keymap]]
 on   = "T"
 run  = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "p" ]
+run  = 'shell "bash -c ~/.config/yazi/plugins/udisk_menu.py" --block --confirm'
+desc = "Open shell here"
 
 [[manager.prepend_keymap]]
 on   = [ "<C-s>" ]
