@@ -12,7 +12,8 @@
     ],
     "modules-center": [
         "mpris",
-        "idle_inhibitor",
+        //"idle_inhibitor",
+	"custom/idle_inhibitor",
     ],
     "modules-right": [
         //"cpu",
