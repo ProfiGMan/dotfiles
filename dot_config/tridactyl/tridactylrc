@@ -15,6 +15,7 @@ set editorcmd kitty --title float sh -c "nvim %f '+normal!%lGzv%c|'"
 command emuKey js -d' tri.controller.acceptExCmd(tri.config.get(JS_ARGS[1])[JS_ARGS[2]])'
 
 bind e nmode ignore 1 mode normal
+bind x tabclose
 
 " tridactyl search
 bind <C-/> fillcmdline find
